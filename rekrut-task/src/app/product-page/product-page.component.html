@@ -1,0 +1,30 @@
+<div class="container" *ngIf="product$ | async as product; else loading">
+  <div class="product">
+    <div class="header right">
+      <button routerLink="/" class="btn btn-dark">Back</button>
+    </div>
+    <div class="flex">
+      <div class="item text-center">
+        <h2>{{product.title}}</h2>
+
+        <div class="flex-center">
+          <quill-view-html [content]="product.imgUrl"></quill-view-html>
+        </div>
+        <div>
+          <h2>Price : {{product.cost}} zl</h2>
+          <p>{{product.weight}}</p>
+          <button class="btn-dark btn" routerLink="/cart" (click)="addProduct(product)">Add to cart</button>
+        </div>
+      </div>
+      <div class="item text-center mt-10">
+        <p>Weight:{{product.weight}}</p>
+        <div class="flex-center">
+          <quill-view-html [content]="product.description"></quill-view-html>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <h1 class="text-center">Loading...</h1>
+</ng-template>

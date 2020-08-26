@@ -1,3 +1,17 @@
-<p>
-  navbar works!
-</p>
+<nav class="navbar bg-success">
+  <h2 routerLink="/">Recrut Task</h2>
+  <ul>
+    <li routerLinkActive="active">
+      <a (click)="setType('main')">Main Dish</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('salads')">Salads</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('soups')">Soups</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('cart')">Cart:{{prodServ.cartProducts.length}}</a>
+    </li>
+  </ul>
+</nav>

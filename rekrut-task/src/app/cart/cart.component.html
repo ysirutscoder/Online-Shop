@@ -1,0 +1,64 @@
+<div class="container" *ngIf="cartProducts.length > 0;else empty">
+
+
+
+  <table>
+    <tbody>
+    <tr *ngFor="let prod of cartProducts; let i = index">
+      <td>{{prod.title}}</td>
+      <td>{{prod.weight}}</td>
+      <td>{{prod.cost}} zl</td>
+      <td>{{prod.category}}</td>
+      <td><button class="btn btn-dark" (click)="removeFromCart(i)">Delete</button></td>
+    </tr>
+    Total:{{price}}
+    </tbody>
+  </table>
+
+
+  <h2 class="text-center">Delivery:</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name">
+      <div *ngIf="form.get('name').touched && form.get('name').invalid" class="validation">
+        <small *ngIf="form.get('name').errors.required">Enter title</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="weight">Weight</label>
+      <input id="weight"  formControlName="weight">
+      <div *ngIf="form.get('weight').touched && form.get('weight').invalid" class="validation">
+        <small *ngIf="form.get('weight').errors.required">Enter weight</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="cost">Cost</label>
+      <input id="cost" class="form-control" formControlName="cost">
+      <div *ngIf="form.get('cost').touched && form.get('cost').invalid" class="validation">
+        <small *ngIf="form.get('cost').errors.required">Enter cost</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="category">Category</label>
+      <select name="category" id="category" formControlName="category">
+        <option value="main">Main Dish</option>
+        <option value="soups">Soups</option>
+        <option value="salads">Salads</option>
+      </select>
+      <div *ngIf="form.get('category').touched && form.get('category').invalid" class="validation">
+        <small *ngIf="form.get('category').errors.required">Choose category</small>
+      </div>
+    </div>
+    <div *ngIf ='productAdded'>
+      <small>Product has been added</small>
+    </div>
+    <button type="submit" class="btn btn-success ">Add</button>
+  </form>
+</div>
+
+<ng-template #empty>
+  <div class="container">
+    <h2 class="text-center"> You cart is empty </h2>
+  </div>
+</ng-template>

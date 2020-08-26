@@ -1,0 +1,26 @@
+<nav class="navbar bg-primary">
+  <h2>
+    <a routerLink="/">Recrut task</a>
+  </h2>
+  <ul *ngIf="isAuth(); else login">
+    <li routerLinkActive="active">
+      <a routerLink="/admin/dashboard">Dashboard</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/admin/add-page">Add new</a>
+    </li>
+    <li routerLinkActive="active" >
+      <a routerLink="/admin/order">Order</a>
+    </li>
+    <li routerLinkActive="active" >
+      <a (click)="logout($event)">LogOut</a>
+    </li>
+  </ul>
+  <ng-template #login>
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/login">Login</a>
+      </li>
+    </ul>
+  </ng-template>
+</nav>

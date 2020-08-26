@@ -1,0 +1,54 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h2 class="text-center">Add product</h2>
+  <div class="form-control">
+    <label for="title">Title</label>
+    <input id="title" formControlName="title">
+    <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+      <small *ngIf="form.get('title').errors.required">Enter title</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="weight">Weight</label>
+    <input id="weight"  formControlName="weight">
+    <div *ngIf="form.get('weight').touched && form.get('weight').invalid" class="validation">
+      <small *ngIf="form.get('weight').errors.required">Enter weight</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="cost">Cost</label>
+    <input id="cost" class="form-control" formControlName="cost">
+    <div *ngIf="form.get('cost').touched && form.get('cost').invalid" class="validation">
+      <small *ngIf="form.get('cost').errors.required">Enter cost</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="category">Category</label>
+    <select name="category" id="category" formControlName="category">
+      <option value="main">Main Dish</option>
+      <option value="soups">Soups</option>
+      <option value="salads">Salads</option>
+    </select>
+    <div *ngIf="form.get('category').touched && form.get('category').invalid" class="validation">
+      <small *ngIf="form.get('category').errors.required">Choose category</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="description">Description</label>
+    <quill-editor id="description" formControlName="description" ></quill-editor>
+    <div *ngIf="form.get('description').touched && form.get('description').invalid" class="validation">
+      <small *ngIf="form.get('description').errors.required">Enter description</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="imgUrl">Image</label>
+    <quill-editor id="imgUrl" formControlName="imgUrl"></quill-editor>
+    <div *ngIf="form.get('imgUrl').touched && form.get('imgUrl').invalid" class="validation">
+      <small *ngIf="form.get('imgUrl').errors.required">Provide image</small>
+    </div>
+  </div>
+  <div *ngIf ='productAdded'>
+    <small>Product has been added</small>
+  </div>
+  <button type="submit" class="btn btn-success ">Add</button>
+
+</form>

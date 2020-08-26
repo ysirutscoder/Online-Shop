@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit()" >
+  <h3 class="text-center">Login to make changes</h3>
+  <div class="form-control">
+    <label for="email"> Email</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">
+      <small *ngIf="form.get('email').errors.required">Enter email</small>
+      <small *ngIf="form.get('email').errors.email">Enter valid mail</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
+      <small *ngIf="form.get('password').errors.required">Enter password</small>
+      <small *ngIf="form.get('password').errors.minlength">Enter valid password</small>
+    </div>
+  </div>
+  <div *ngIf="erroreMessage">
+    <small>Please enter correct credentials</small>
+  </div>
+  <button type="submit" class="btn btn-danger btn-block" [disabled]="form.invalid || submited">Log In</button>
+</form>
