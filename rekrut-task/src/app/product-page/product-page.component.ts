@@ -15,7 +15,6 @@ export class ProductPageComponent implements OnInit {
   ngOnInit() {
     this.product$ = this.route.params
       .pipe(switchMap(params => {
-        console.log(params['id']);
         return this.prodSer.getById(params['id']);
       }));
   }

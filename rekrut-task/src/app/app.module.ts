@@ -15,6 +15,8 @@ import {DishComponent} from './dish/dish.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './shared/pipes/filter.pipe';
 import {CartComponent} from './cart/cart.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -37,6 +39,7 @@ import {CartComponent} from './cart/cart.component';
         FormsModule,
         AdminModule,
         ReactiveFormsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
   providers: [
     {

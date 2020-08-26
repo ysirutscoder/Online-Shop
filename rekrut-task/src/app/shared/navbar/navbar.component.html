@@ -11,7 +11,7 @@
       <a (click)="setType('soups')">Soups</a>
     </li>
     <li routerLinkActive="active">
-      <a (click)="setType('cart')">Cart:{{prodServ.cartProducts.length}}</a>
+      <a (click)="setType('cart')" routerLink="/cart">Cart:{{prodServ.cartProducts.length}}</a>
     </li>
   </ul>
 </nav>

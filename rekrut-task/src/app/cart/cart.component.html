@@ -22,38 +22,34 @@
       <label for="name">Name</label>
       <input id="name" formControlName="name">
       <div *ngIf="form.get('name').touched && form.get('name').invalid" class="validation">
-        <small *ngIf="form.get('name').errors.required">Enter title</small>
+        <small *ngIf="form.get('name').errors.required">Enter name</small>
       </div>
     </div>
     <div class="form-control">
-      <label for="weight">Weight</label>
-      <input id="weight"  formControlName="weight">
-      <div *ngIf="form.get('weight').touched && form.get('weight').invalid" class="validation">
-        <small *ngIf="form.get('weight').errors.required">Enter weight</small>
+      <label for="phone">Phone</label>
+      <input id="phone"  formControlName="phone">
+      <div *ngIf="form.get('phone').touched && form.get('phone').invalid" class="validation">
+        <small *ngIf="form.get('phone').errors.required">Enter phone</small>
       </div>
     </div>
     <div class="form-control">
-      <label for="cost">Cost</label>
-      <input id="cost" class="form-control" formControlName="cost">
-      <div *ngIf="form.get('cost').touched && form.get('cost').invalid" class="validation">
-        <small *ngIf="form.get('cost').errors.required">Enter cost</small>
+      <label for="adress">Adress</label>
+      <input id="adress" class="form-control" formControlName="adress">
+      <div *ngIf="form.get('adress').touched && form.get('adress').invalid" class="validation">
+        <small *ngIf="form.get('adress').errors.required">Enter your adress</small>
       </div>
     </div>
     <div class="form-control">
-      <label for="category">Category</label>
-      <select name="category" id="category" formControlName="category">
-        <option value="main">Main Dish</option>
-        <option value="soups">Soups</option>
-        <option value="salads">Salads</option>
+      <label for="payment">Payment</label>
+      <select name="payment" id="payment" formControlName="payment">
+        <option value="card">Card</option>
+        <option value="cash">Cash</option>
       </select>
-      <div *ngIf="form.get('category').touched && form.get('category').invalid" class="validation">
-        <small *ngIf="form.get('category').errors.required">Choose category</small>
-      </div>
     </div>
     <div *ngIf ='productAdded'>
-      <small>Product has been added</small>
+      <small>Oreder has been published</small>
     </div>
-    <button type="submit" class="btn btn-success ">Add</button>
+    <button type="submit" class="btn btn-success ">Place order</button>
   </form>
 </div>
 

@@ -67,5 +67,7 @@ export class ProductService {
   addToCart(prod) {
     this.cartProducts.push(prod);
   }
+
+
 }
 
